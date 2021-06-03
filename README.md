@@ -49,8 +49,28 @@ Tensors are a specialized data structure similar to arrays and metrices. Tensors
 Tensors can be initialized from a created array. The data type is automatically inffered.
 ```python
 data = [[1, 2], [3, 4]]
-x_data = torch.tensor(data)
-print(f"x_data from arrays: \n {x_data} \n")
+tensor_data = torch.tensor(data)
+print(f"tensor_data from arrays: \n {tensor_data} \n")
 ```
 #### From a NumPy Array
 Tensors can be created from NumPy arrays and vice versa
+```python
+# Tensor from Numpy
+data = [[1, 2], [3, 4]]
+np_array = np.array(data)
+tensor_from_np = torch.from_numpy(np_array)
+print(f"From Numpy: \n {tensor_from_np} \n")
+
+# NumPy from Tensor
+np_from_tensor = np.array(tensor_from_np)
+print(f"From Tensor: \n {np_from_tensor} \n")
+```
+#### From another tensor
+The newly created tensor retains the properties: shape and datatype of the argument tensor unless explicitly overridden.
+```python
+tensor_ones = torch.ones_like(x_data)
+print(f"Ones Tensor: \n {tensor_ones} \n")
+
+tensor_rand = torch.rand_like(x_data, dtype=torch.float)
+print(f"Random Tensor: \n {tensor_rand} \n")
+```
