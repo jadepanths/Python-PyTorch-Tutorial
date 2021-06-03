@@ -1,6 +1,8 @@
 # Python-PyTorch-Tutorial
 Basic PyTorch Tutorials in Python for beginners who have not used Python for years.
 
+# Work In Progress
+
 # Installation
 Install an IDE on your local device like [IDLE](https://www.python.org/downloads/), [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows), or [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/features/python/).  I personally recommend [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) as it has an excellent debugger, sophisticated autocompletion, and refactoring support.
 
