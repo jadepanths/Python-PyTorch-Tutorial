@@ -42,7 +42,7 @@ print(x)
 
 # Basic PyTorch
 ## Tensors
-Tensors are a specialized data structure similar to arrays and metrices. Tensors are similar to [NumPy's](https://numpy.org/devdocs/user/absolute_beginners.html) ndarrays. However, Tensors can run on GPUs or hardware accelerators making significant faster than NumPy especially when running on GPUs. You can learn more about [NumPy vs Tensors](https://medium.com/thenoobengineer/numpy-arrays-vs-tensors-c58ea54f0e59) here. Note that all tensors are immutable like Python numbers and strings: you can never update the contents of a tensor, only create a new one.
+Tensors are a specialized data structure similar to arrays and metrices. Tensors are similar to [NumPy's](https://numpy.org/devdocs/user/absolute_beginners.html) ndarrays. However, Tensors can run on GPUs or hardware accelerators making significant faster than NumPy especially when running on GPUs. You can learn more about [NumPy vs Tensors](https://medium.com/thenoobengineer/numpy-arrays-vs-tensors-c58ea54f0e59) here. A very short definition of tensor is a metrix of N ≥ 3 dimensions. Note that all tensors are immutable like Python numbers and strings: you can never update the contents of a tensor, only create a new one.
 
 ### Initializing a Tensor
 #### Directly from arrays
