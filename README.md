@@ -1,7 +1,7 @@
 # Python-PyTorch-Tutorial
-Basic PyTorch Tutorials in Python 
+Basic PyTorch Tutorials in Python for beginners who have not used Python for years.
 
-### Installation
+# Installation
 Install an IDE on your local device like [IDLE](https://www.python.org/downloads/), [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows), or [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/features/python/).  I personally recommend [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) as it has an excellent debugger, sophisticated autocompletion, and refactoring support.
 
 Install [Anaconda](https://www.anaconda.com/products/individual). Anaconda is an toolkit that include open-source packages and libraries. You will need this to install libraries and manage environments where you will compile your code in.
@@ -10,7 +10,7 @@ Check if your computer/labtop is ***CUDA-capable*** CUDA is limited to ***NVIDIA
 ![Device Manager](https://user-images.githubusercontent.com/85147048/120597340-1eacff00-c46f-11eb-824c-7fcfffb5f5ee.png)
 After making sure you have a CUDA-capable gpu, you can download and install [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
 
-#### Install PyTorch
+## Install PyTorch
 First, create a new environment by openning Anaconda Prompt in the window start menu. Then, run this command: ```conda create --name deeplearning``` where "deeplearning" is the name of the enviroment and can use any name you wish. The terminal will ask you to preceed, tpye 'y' and enter. Then, run the following command ```conda activate deeplearning``` (note: "deeplearning" is the environment name you created. Makde sure to use the same name).<br/>
 For **NON-CUDA** run this command <br/>```conda install pytorch torchvision torchaudio cpuonly -c pytorch```.<br/>
 For **CUDA CUDA-capable** run this command <br/>```conda install pytorch torchvision torchaudio cudatoolkit=10.2 -c pytorch```.<br/>
@@ -37,3 +37,18 @@ if device.type == 'cuda':
 x = torch.rand(5, 3)
 print(x)
 ```
+
+# Basic PyTorch
+## Tensors
+Tensors are a specialized data structure similar to arrays and metrices. Tensors are similar to [NumPy's](https://numpy.org/devdocs/user/absolute_beginners.html) ndarrays. However, Tensors can run on GPUs or hardware accelerators making significant faster than NumPy especially when running on GPUs. You can learn more about [NumPy vs Tensors](https://medium.com/thenoobengineer/numpy-arrays-vs-tensors-c58ea54f0e59) here. Note that all tensors are immutable like Python numbers and strings: you can never update the contents of a tensor, only create a new one.
+
+### Initializing a Tensor
+#### Directly from arrays
+Tensors can be initialized from a created array. The data type is automatically inffered.
+```python
+data = [[1, 2], [3, 4]]
+x_data = torch.tensor(data)
+print(f"x_data from arrays: \n {x_data} \n")
+```
+#### From a NumPy Array
+Tensors can be created from NumPy arrays and vice versa
