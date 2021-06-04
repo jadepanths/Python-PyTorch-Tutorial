@@ -137,4 +137,19 @@ tensor([1, 2, 3, 4, 5])
 torch.Size([5])
 ```
 #### Rank-2 or Matrix
-
+A *matrix* or *rank-2* tensor has two axes like a 2 dimesional arrays.
+```python
+import torch
+rank_2_tensor = torch.tensor([[1, 2], [3, 4], [5, 6], [7, 8]])
+print(rank_2_tensor)
+print(rank_2_tensor.shape)
+```
+*out put*
+*out put*
+```
+tensor([[1, 2],
+        [3, 4],
+        [5, 6],
+        [7, 8]])
+torch.Size([4, 2])
+```
