@@ -107,3 +107,9 @@ Shape of tensor: torch.Size([3, 4])
 Datatype of tensor: torch.float32
 Device tensor is stored on: cpu
 ```
+
+### Tensor's Dimension/shape
+Since dimensions have been mentioned multiple times, here is some information regarding them.
+#### Rank-0 or Scalar
+
+
