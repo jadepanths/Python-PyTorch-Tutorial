@@ -45,6 +45,8 @@ print(x)
 Tensors are a specialized data structure similar to arrays and matrixes. Tensors are similar to [NumPy's](https://numpy.org/devdocs/user/absolute_beginners.html) ndarrays. However, Tensors can run on GPUs or hardware accelerators, making it significantly faster than NumPy, especially when running on GPUs. You can learn more about [NumPy vs. Tensors](https://medium.com/thenoobengineer/numpy-arrays-vs-tensors-c58ea54f0e59) here. A concise definition of a tensor is a matrix of N ≥ 3 dimensions. Note that all tensors are immutable, like Python numbers and strings: you can never update the contents of a tensor, only create a new one.
 
 ### Initializing a Tensor
+You can initialize a tensor in many ways. Here is the reference source, [TENSORS](https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html).
+
 #### Directly from arrays
 Tensors can be initialized from a created array. The data type is automatically inferred.
 ```python
@@ -75,7 +77,7 @@ tensor_rand = torch.rand_like(x_data, dtype=torch.float)
 print(f"Random Tensor: \n {tensor_rand} \n")
 ```
 #### With a random/constant values
-*shape* is a tuple of tensor dimensions. You can initialize a tensor with any constant value or random numbers.
+*shape* is a tuple of tensor dimensions. You can initialize a tensor with any constant value or random numbers. <br/>
 *rand* is random.
 ```python
 shape = (4, 3,)
@@ -86,4 +88,22 @@ zeros_tensor = torch.zeros(shape)
 print(f"Random Tensor: \n {rand_tensor} \n")
 print(f"Ones Tensor: \n {ones_tensor} \n")
 print(f"Zeros Tensor: \n {zeros_tensor} \n")
+```
+### Tensor's Attributes
+Attributes describe their shape, datatype, and the device on which the tensor is stored.<br/>
+```tensor.shape``` will show the dimension of the tensor.<br/>
+```tensor.dtype``` will show the datatype of the tensor.<br/>
+```tensor.device``` will show the device the tensor is stored on.<br/>
+
+```python
+tensor = torch.rand(3, 4,)
+print(f"Shape of tensor: {tensor.shape}")
+print(f"Datatype of tensor: {tensor.dtype}")
+print(f"Device tensor is stored on: {tensor.device}")
+```
+*out out*
+```
+Shape of tensor: torch.Size([3, 4])
+Datatype of tensor: torch.float32
+Device tensor is stored on: cpu
 ```
