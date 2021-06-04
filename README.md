@@ -222,8 +222,20 @@ There are over a hundred tensor oparetions, including arithmetic, linear algebra
 Since we have talked about CUDA in the installation section, we can move our tensor to GPU if available. By default, tensors are created on the CPU. However, you can move run them on GPU at a higher speed than on a CPU.
 
 ```python
+tensor_cpu = torch.rand([2, 2, 2, ])
+
 # We move our tensor to the GPU if available
 if torch.cuda.is_available():
-  tensor = tensor.to('cuda')
-```
+    tensor_cuda = tensor_cpu.to('cuda')
 
+print(tensor_cuda)
+```
+*output*
+```
+tensor([[[0.0510, 0.7120],
+         [0.4976, 0.6011]],
+
+        [[0.3774, 0.0082],
+         [0.5302, 0.2511]]], device='cuda:0')
+```
+*note* device='cuda:0' is your GPU index at 0. Useful when you have multiple GPUs.
