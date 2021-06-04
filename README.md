@@ -101,7 +101,7 @@ print(f"Shape of tensor: {tensor.shape}")
 print(f"Datatype of tensor: {tensor.dtype}")
 print(f"Device tensor is stored on: {tensor.device}")
 ```
-*out out*
+*output*
 ```
 Shape of tensor: torch.Size([3, 4])
 Datatype of tensor: torch.float32
@@ -118,7 +118,7 @@ rank_0_tensor = torch.tensor(4)
 print(rank_0_tensor)
 print(rank_0_tensor.shape)
 ```
-*out put*
+*output*
 ```
 tensor(4)
 torch.Size([])
@@ -131,7 +131,7 @@ rank_1_tensor = torch.tensor([1, 2, 3, 4, 5, ])
 print(rank_1_tensor)
 print(rank_1_tensor.shape)
 ```
-*out put*
+*output*
 ```
 tensor([1, 2, 3, 4, 5])
 torch.Size([5])
