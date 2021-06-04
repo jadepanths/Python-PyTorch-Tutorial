@@ -178,4 +178,9 @@ tensor([[[ 0,  1,  2,  3],
          [20, 21, 22, 23]]])
 torch.Size([3, 2, 4])
 ```
+![3Dimensions-1](https://user-images.githubusercontent.com/85147048/120790992-d15b8b00-c55d-11eb-9487-6ce3cb3ca0b3.jpg)
+
+It is easier to construct the multidimensional tension with the last element of the shape/size. In this example (tensor size [3, 2, 4]), you start with 4 elements on an axis, 2 on another axis becoming 4 by 2 tension, and 3 on the last axis becoming 4 by 2 by 3 tension. In addition, it's easier to keep track of your multidimensional tensions when you keep the same format consistently.
+For example, construct starting on the x-axis, y-axis, z-axis, then x-axis again.
+
 
