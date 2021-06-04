@@ -109,7 +109,8 @@ Device tensor is stored on: cpu
 ```
 
 ### Tensor's Dimension/shape
-Since dimensions have been mentioned multiple times, here is some information regarding them.
+Since dimensions have been mentioned multiple times, here is some information regarding them. This section will help you visualizing multidimensions tensor/arrays. You can also read more about it here [Understanding Dimensions in PyTorch](https://towardsdatascience.com/understanding-dimensions-in-pytorch-6edf9972d3be).
+
 #### Rank-0 or Scalar
 A *scalar* contains a single value and has no axes.
 ```python
@@ -187,7 +188,7 @@ For example, construct starting on the x-axis, y-axis, z-axis, then x-axis again
 Basically a stack of the matrix tensors.
 ```python
 import torch
-rank_4_tensor = torch.zeros([2, 2, 2, 3, ])
+rank_4_tensor = torch.zeros([3, 2, 2, 3, ])
 print(rank_4_tensor)
 print(rank_4_tensor.shape)
 ```
@@ -204,6 +205,14 @@ tensor([[[[0., 0., 0.],
           [0., 0., 0.]],
 
          [[0., 0., 0.],
+          [0., 0., 0.]]],
+
+
+        [[[0., 0., 0.],
+          [0., 0., 0.]],
+
+         [[0., 0., 0.],
           [0., 0., 0.]]]])
-torch.Size([2, 2, 2, 3])
+torch.Size([3, 2, 2, 3])
 ```
+![4+Dimensions](https://user-images.githubusercontent.com/85147048/120795255-73ca3d00-c563-11eb-8ba9-19736313a134.jpg)
