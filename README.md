@@ -152,3 +152,29 @@ tensor([[1, 2],
         [7, 8]])
 torch.Size([4, 2])
 ```
+#### Rank-3 or 3 Dimesionals
+Tensor with 3 axes.
+```python
+import torch
+rank_3_tensor = torch.tensor([
+  [[0, 1, 2, 3, 4],
+   [5, 6, 7, 8, 9]],
+  [[10, 11, 12, 13, 14],
+   [15, 16, 17, 18, 19]],
+  [[20, 21, 22, 23, 24],
+   [25, 26, 27, 28, 29]], ])
+print(rank_3_tensor)
+print(rank_3_tensor.shape)
+```
+*output*
+```
+tensor([[[ 0,  1,  2,  3,  4],
+         [ 5,  6,  7,  8,  9]],
+
+        [[10, 11, 12, 13, 14],
+         [15, 16, 17, 18, 19]],
+
+        [[20, 21, 22, 23, 24],
+         [25, 26, 27, 28, 29]]])
+torch.Size([3, 2, 5])
+```
