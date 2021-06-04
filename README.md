@@ -111,5 +111,30 @@ Device tensor is stored on: cpu
 ### Tensor's Dimension/shape
 Since dimensions have been mentioned multiple times, here is some information regarding them.
 #### Rank-0 or Scalar
-
+A *scalar* contains a single value and has no axes.
+```python
+import torch
+rank_0_tensor = torch.tensor(4)
+print(rank_0_tensor)
+print(rank_0_tensor.shape)
+```
+*out put*
+```
+tensor(4)
+torch.Size([])
+```
+#### Rank-1 or Vector
+A *vector* tensor is a list of values and has only one axis.
+```python
+import torch
+rank_1_tensor = torch.tensor([1, 2, 3, 4, 5, ])
+print(rank_1_tensor)
+print(rank_1_tensor.shape)
+```
+*out put*
+```
+tensor([1, 2, 3, 4, 5])
+torch.Size([5])
+```
+#### Rank-2 or Matrix
 
