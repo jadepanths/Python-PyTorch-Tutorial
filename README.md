@@ -144,8 +144,7 @@ rank_2_tensor = torch.tensor([[1, 2], [3, 4], [5, 6], [7, 8]])
 print(rank_2_tensor)
 print(rank_2_tensor.shape)
 ```
-*out put*
-*out put*
+*output*
 ```
 tensor([[1, 2],
         [3, 4],
