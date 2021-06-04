@@ -216,3 +216,14 @@ tensor([[[[0., 0., 0.],
 torch.Size([3, 2, 2, 3])
 ```
 ![4+Dimensions](https://user-images.githubusercontent.com/85147048/120795255-73ca3d00-c563-11eb-8ba9-19736313a134.jpg)
+
+### Tensor's Operations
+There are over a hundred tensor oparetions, including arithmetic, linear algebra, matrix manipulation, sampling, and more [here](https://pytorch.org/docs/stable/torch.html).<br/>
+Since we have talked about CUDA in the installation section, we can move our tensor to GPU if available. By default, tensors are created on the CPU. However, you can move run them on GPU at a higher speed than on a CPU.
+
+```python
+# We move our tensor to the GPU if available
+if torch.cuda.is_available():
+  tensor = tensor.to('cuda')
+```
+
