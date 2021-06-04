@@ -183,4 +183,27 @@ torch.Size([3, 2, 4])
 It is easier to construct the multidimensional tension with the last element of the shape/size. In this example (tensor size [3, 2, 4]), you start with 4 elements on an axis, 2 on another axis becoming 4 by 2 tension, and 3 on the last axis becoming 4 by 2 by 3 tension. In addition, it's easier to keep track of your multidimensional tensions when you keep the same format consistently.
 For example, construct starting on the x-axis, y-axis, z-axis, then x-axis again.
 
+#### Rank-4 tensor, and higher.
+Basically a stack of the matrix tensors.
+```python
+import torch
+rank_4_tensor = torch.zeros([2, 2, 2, 3, ])
+print(rank_4_tensor)
+print(rank_4_tensor.shape)
+```
+*output*
+```
+tensor([[[[0., 0., 0.],
+          [0., 0., 0.]],
 
+         [[0., 0., 0.],
+          [0., 0., 0.]]],
+
+
+        [[[0., 0., 0.],
+          [0., 0., 0.]],
+
+         [[0., 0., 0.],
+          [0., 0., 0.]]]])
+torch.Size([2, 2, 2, 3])
+```
