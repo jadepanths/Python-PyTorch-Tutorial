@@ -264,4 +264,59 @@ tensor([[1., 0., 1., 1.],
         [1., 0., 1., 1.],
         [1., 0., 1., 1.]])
 ```
-More example codes in the included files.
+More example codes in the included files/codes.
+
+#### Joining Tensors
+*torch.stack* **stacks** a sequence of tensors along a **new dimension**<br/>
+*torch.cat* con**cat**enates the sequence of tensors in the **given dimension.**<br/>
+```python
+import torch
+
+t1 = torch.tensor([[1, 2],
+                   [3, 4]])
+
+t2 = torch.tensor([[5, 6],
+                   [7, 8]])
+
+tStack = torch.stack((t1, t2))
+print("stack: \n", tStack)
+print("stack dimension: ", tStack.shape)
+print()
+
+tCatDim1 = torch.cat((t1, t2), dim=0)
+print("cat | dim=0: \n", tCatDim1)
+print("cat | new dimension: ", tCatDim1.shape)
+print()
+
+tCatDim2 = torch.cat((t1, t2), dim=1)
+print("cat | dim=1: \n", tCatDim2)
+print("cat | new dimension: ", tCatDim2.shape)
+```
+*output*
+```
+stack: 
+ tensor([[[1, 2],
+         [3, 4]],
+
+        [[5, 6],
+         [7, 8]]])
+stack dimension:  torch.Size([2, 2, 2])
+
+cat | dim=0: 
+ tensor([[1, 2],
+        [3, 4],
+        [5, 6],
+        [7, 8]])
+cat | new dimension:  torch.Size([4, 2])
+
+cat | dim=1: 
+ tensor([[1, 2, 5, 6],
+        [3, 4, 7, 8]])
+cat | new dimension:  torch.Size([2, 4])
+
+Process finished with exit code 0
+
+```
+So if **A** and **B** are of shape (4, 5), torch.cat((A, B), dim=0) will be of shape (8, 5), and torch.stack((A, B), dim=0) will be of shape (2, 4, 5).
+
+#### Arithmetic operations
