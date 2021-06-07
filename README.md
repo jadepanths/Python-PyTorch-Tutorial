@@ -47,6 +47,25 @@ Tensors are a specialized data structure similar to arrays and matrixes. Tensors
 ### Initializing a Tensor
 You can initialize a tensor in many ways. Here is the reference source, [TENSORS](https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html).
 
+#### Directly with oparetor
+Tensor can be initialized using ```torch.tensor()``` creating a specific tensor.
+```python
+t1 = torch.tensor([[1, 2],
+                  [3, 4]])
+t2 = torch.tensor([[5, 6],
+                  [7, 8]])
+print("t1: \n", t1)
+print("t2: \n", t2)
+```
+*output*
+```
+t1: 
+ tensor([[1, 2],
+        [3, 4]])
+t2: 
+ tensor([[5, 6],
+        [7, 8]])
+```
 #### Directly from arrays
 Tensors can be initialized from a created array. The data type is automatically inferred.
 ```python
@@ -313,10 +332,72 @@ cat | dim=1:
  tensor([[1, 2, 5, 6],
         [3, 4, 7, 8]])
 cat | new dimension:  torch.Size([2, 4])
-
-Process finished with exit code 0
-
 ```
 So if **A** and **B** are of shape (4, 5), torch.cat((A, B), dim=0) will be of shape (8, 5), and torch.stack((A, B), dim=0) will be of shape (2, 4, 5).
 
 #### Arithmetic operations
+#### Dot Multiplication
+```torch.mul(a, b)``` is a multiplication of the corresponding bits of matrix a and b. The dimensions of the two metrix are generally equal (ex: the number of elements have to match) The output metrix will keep its shape/dimension.
+```python
+# dot multiplication
+t1 = torch.randn(1, 2, )
+t2 = torch.randn(1, 2, )
+
+tMul = torch.mul(t1, t2)
+
+print("t1: \n", t1)
+print("t2: \n", t2, "\n")
+
+print("dot multiplication: \n", tMul, "\n")
+```
+*output*
+```
+t1: 
+ tensor([[0.8898, 1.2521]])
+t2: 
+ tensor([[ 1.0311, -0.5143]]) 
+
+dot multiplication: 
+ tensor([[ 0.9175, -0.6440]])
+```
+#### Matrix Multiplication
+```torch.mm(a, b)``` multiplies the matrix a and b.
+```python
+print("\n Matrix Multiplication")
+t1 = torch.tensor([[1, 2, 3, 4, ],
+                   [1, 2, 3, 4, ],
+                   [1, 2, 3, 4, ]])
+
+print("t1: \n", t1, "\n", t1.shape)
+
+t2 = torch.tensor([[1, 2],
+                   [1, 2],
+                   [1, 2],
+                   [1, 2]])
+
+print("t2: \n", t2, "\n", t2.shape)
+
+tMM = torch.mm(t1, t2)
+print("matrix multiplication: \n", tMM, "\n"
+      , tMM.shape)
+```
+*output*
+```
+t1: 
+ tensor([[1, 2, 3, 4],
+        [1, 2, 3, 4],
+        [1, 2, 3, 4]]) 
+ torch.Size([3, 4])
+t2: 
+ tensor([[1, 2],
+        [1, 2],
+        [1, 2],
+        [1, 2]]) 
+ torch.Size([4, 2])
+matrix multiplication: 
+ tensor([[10, 20],
+        [10, 20],
+        [10, 20]]) 
+ torch.Size([3, 2])
+```
+
