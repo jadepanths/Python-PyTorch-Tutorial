@@ -401,3 +401,36 @@ matrix multiplication:
  torch.Size([3, 2])
 ```
 
+```torch.matmul(a, b)``` A high-dimensional matrix multiplication.
+```python
+# torch.matmul(a, b)
+t1 = torch.ones(2, 4, 2)
+t2 = torch.ones(2, 2, 3)
+tMatmul = torch.matmul(t1, t2)
+print("matrix multiplication: \n", tMatmul, "\n"
+      , tMatmul.shape)
+```
+*output*
+```
+matrix multiplication: 
+ tensor([[[2., 2., 2.],
+         [2., 2., 2.],
+         [2., 2., 2.],
+         [2., 2., 2.]],
+
+        [[2., 2., 2.],
+         [2., 2., 2.],
+         [2., 2., 2.],
+         [2., 2., 2.]]]) 
+ torch.Size([2, 4, 3])
+```
+There are many more operations such as: <br/>
+```tensor.sum()``` to sum all the elements into a single tensor value<br/>
+```tensor.item()``` to change the tensor value into Python numerical value like float<br/>
+```tensor.add_(x)``` to add all the elements with **x**<br/>
+note: **_** suffix is called **In-Place operations**. Operations that store the result into the operand are called in-place. Basically you are chaning/altering the variable. For example x.copy_(y) or x.t_() will change the x.
+
+## Datasets & Dataloaders
+Processing data samples. PyTorch provides two data promitives that help readablity and modularity.
+
+
