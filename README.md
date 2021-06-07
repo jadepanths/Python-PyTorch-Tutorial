@@ -425,9 +425,9 @@ matrix multiplication:
  torch.Size([2, 4, 3])
 ```
 There are many more operations such as: <br/>
-```tensor.sum()``` to sum all the elements into a single tensor value<br/>
-```tensor.item()``` to change the tensor value into Python numerical value like float<br/>
-```tensor.add_(x)``` to add all the elements with **x**<br/>
+```tensor.sum()``` to sum all the elements into a single tensor value.<br/>
+```tensor.item()``` to change the tensor value into Python numerical value like float.<br/>
+```tensor.add_(x)``` to add all the elements with **x**.<br/>
 note: **_** suffix is called **In-Place operations**. Operations that store the result into the operand are called in-place. Basically you are chaning/altering the variable. For example x.copy_(y) or x.t_() will change the x.
 
 ## Datasets & Dataloaders
