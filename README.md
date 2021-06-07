@@ -218,7 +218,10 @@ torch.Size([3, 2, 2, 3])
 ![4+Dimensions](https://user-images.githubusercontent.com/85147048/120795255-73ca3d00-c563-11eb-8ba9-19736313a134.jpg)
 
 ### Tensor's Operations
-There are over a hundred tensor oparetions, including arithmetic, linear algebra, matrix manipulation, sampling, and more [here](https://pytorch.org/docs/stable/torch.html).<br/>
+There are over a hundred tensor oparetions, including arithmetic, linear algebra, matrix manipulation, sampling, and more [here](https://pytorch.org/docs/stable/torch.html).
+
+
+#### Tensor on CUDA/CPU
 Since we have talked about CUDA in the installation section, we can move our tensor to GPU if available. By default, tensors are created on the CPU. However, you can move run them on GPU at a higher speed than on a CPU.
 
 ```python
@@ -239,3 +242,25 @@ tensor([[[0.0510, 0.7120],
          [0.5302, 0.2511]]], device='cuda:0')
 ```
 *note* device='cuda:0' is your GPU index at 0. Useful when you have multiple GPUs.
+
+#### Standard numpy-like indexing and slicing
+Access, print, or edit different indexes.
+A coding example from [PyTorch](https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html)<br/>
+```python
+tensor = torch.ones(4, 4)
+print('First row: ',tensor[0])
+print('First column: ', tensor[:, 0])
+print('Last column:', tensor[..., -1])
+tensor[:,1] = 0
+print(tensor)
+```
+*output*
+```
+First row:  tensor([1., 1., 1., 1.])
+First column:  tensor([1., 1., 1., 1.])
+Last column: tensor([1., 1., 1., 1.])
+tensor([[1., 0., 1., 1.],
+        [1., 0., 1., 1.],
+        [1., 0., 1., 1.],
+        [1., 0., 1., 1.]])
+```
