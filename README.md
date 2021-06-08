@@ -431,6 +431,11 @@ There are many more operations such as: <br/>
 note: **_** suffix is called **In-Place operations**. Operations that store the result into the operand are called in-place. Basically you are chaning/altering the variable. For example x.copy_(y) or x.t_() will change the x.
 
 ## Datasets & Dataloaders
-Processing data samples. PyTorch provides two data promitives that help readablity and modularity.
+Processing data samples. PyTorch provides operators that help readability and modularity. You can use pre-loaded datasets provided by PyTorch or your own datasets. **Dataset** stores the samples and their corresponding labels while **DataLoader** wraps an iterable around the **dataset** to enable easy access to the samples. **DataLoader** comes into handy when the datasets become prominent and are required to be loaded into memory at once.  **DataLoader** parallelizes the data loading process with the support of automatic batching.
+
+```torch.utils.data.DataLoader```
+```torch.utils.data.Dataset```
+
+An example from [PyTorch's Datasets/Dataloaders](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html), we are going to load a dataset from the **Fashion-MNIST** which is one of subclasses of ```torch.utils.data.Dataset``` [TORCHVISION.DATASETS](https://pytorch.org/vision/stable/datasets.html#fashion-mnist).
 
 
