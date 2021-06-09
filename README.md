@@ -287,9 +287,9 @@ if torch.cuda.is_available():
     # Would have to move it back to CPU if you would like to convert
     z = z.to("cpu")
  
-print(x)
-print(y)
-print(z)
+    print(x)
+    print(y)
+    print(z)
 ```
 *output*
 ```
@@ -465,6 +465,50 @@ There are many more operations such as: <br/>
 ```tensor.item()``` to change the tensor value into Python numerical value like float.<br/>
 ```tensor.add_(x)``` to add all the elements with **x**.<br/>
 note: **_** suffix is called **In-Place operations**. Operations that store the result into the operand are called in-place. Basically you are chaning/altering the variable. For example x.copy_(y) or x.t_() will change the x.
+
+#### Tensor Memory Location
+```Python
+import torch
+
+a = torch.ones(3)
+print(a)
+b = a.numpy()
+print(b)
+
+a.add_(1)
+print(a)
+print(b)
+```
+_output_
+```
+tensor([1., 1., 1.])
+[1. 1. 1.]
+tensor([2., 2., 2.])
+[2. 2. 2.]
+```
+You can see that when modify **a** with .add_(1), **b** will be modified as well.
+The reason is that **a** and **b** both point to the same memory address. The same goes to this following example.
+
+```Python
+import torch
+import numpy as np
+
+a = np.ones(3)
+print(a)
+b = torch.from_numpy(a)
+print(b)
+
+a += 1
+print(a)
+print(b)
+```
+_output_
+```
+[1. 1. 1.]
+tensor([1., 1., 1.], dtype=torch.float64)
+[2. 2. 2.]
+tensor([2., 2., 2.], dtype=torch.float64)
+```
 
 ## Datasets & Dataloaders
 Processing data samples. PyTorch provides operators that help readability and modularity. You can use pre-loaded datasets provided by PyTorch or your own datasets. **Dataset** stores the samples and their corresponding labels while **DataLoader** wraps an iterable around the **dataset** to enable easy access to the samples. **DataLoader** comes into handy when the datasets become prominent and are required to be loaded into memory at once.  **DataLoader** parallelizes the data loading process with the support of automatic batching.
