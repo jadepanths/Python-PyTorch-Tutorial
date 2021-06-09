@@ -243,12 +243,15 @@ There are over a hundred tensor oparetions, including arithmetic, linear algebra
 #### Tensor on CUDA/CPU
 Since we have talked about CUDA in the installation section, we can move our tensor to GPU if available. By default, tensors are created on the CPU. However, you can move run them on GPU at a higher speed than on a CPU.
 
+##### Example 1
 ```python
+import torch
 tensor_cpu = torch.rand([2, 2, 2, ])
 
 # We move our tensor to the GPU if available
 if torch.cuda.is_available():
     tensor_cuda = tensor_cpu.to('cuda')
+    # .to move the tensor to your gpu
 
 print(tensor_cuda)
 ```
@@ -261,6 +264,39 @@ tensor([[[0.0510, 0.7120],
          [0.5302, 0.2511]]], device='cuda:0')
 ```
 *note* device='cuda:0' is your GPU index at 0. Useful when you have multiple GPUs.
+
+##### Example 2
+```python
+import torch
+
+if torch.cuda.is_available():
+    # Set the cuda0 to be the first GPU (index 0)
+    cuda0 = torch.device("cuda")
+    
+    # cuda1 = torch.device("cuda:1) # second and more GPUs if available
+    # Cross-GPU operations are not allowed by default.
+    
+    x = torch.ones(3, device=cuda0)
+    y = torch.ones(3)
+    y = y.to(cuda0) # Move tensor y to GPU
+    
+    # This will be performed on the GPU 
+    z = x + y
+    
+    # z.numpy() will not work as it can handle only CPU tensor 
+    # Would have to move it back to CPU if you would like to convert
+    z = z.to("cpu")
+ 
+print(x)
+print(y)
+print(z)
+```
+*output*
+```
+tensor([1., 1., 1.], device='cuda:0')
+tensor([1., 1., 1.], device='cuda:0')
+tensor([2., 2., 2.])
+```
 
 #### Standard numpy-like indexing and slicing
 Access, print, or edit different indexes.
@@ -440,4 +476,9 @@ Processing data samples. PyTorch provides operators that help readability and mo
 
 An example from [PyTorch's Datasets/Dataloaders](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html), we are going to load a dataset from the **Fashion-MNIST** which is one of subclasses of ```torch.utils.data.Dataset```, [TORCHVISION.DATASETS](https://pytorch.org/vision/stable/datasets.html#fashion-mnist).
 
+**Parameters**<br/>
+```root``` is the path where the train/test data is stored. <br/>
+```train``` specifies training or test dataset. <br/>
+```downlad=true``` downloads the data from the internet if it's not avaliable at ```root```. <br/>
+```transform``` and ```target_transform``` specify the featre and label transformations. <br/>
 
