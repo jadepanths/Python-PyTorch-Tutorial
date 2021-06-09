@@ -1,6 +1,18 @@
 # Python-PyTorch-Tutorial
 Basic PyTorch Tutorials in Python for beginners
 
+## Background and Recommendation
+### Mathematics
+To master deeplearning and AI, according to [Andrew Ng](https://en.wikipedia.org/wiki/Andrew_Ng), these areas of math are the most imporant, in decreasing order:
+1. Linear Algebra
+2. Probability and Statistics
+3. Calculus (including multivariate calculus)
+4. Optimization
+
+My recommendation is to learn basic linear algebra then basic programming.
+### Basic Python
+There are many online classes and toturials you can find online. 
+
 # Work In Progress
 
 # Installation
@@ -465,6 +477,9 @@ There are many more operations such as: <br/>
 note: **_** suffix is called **In-Place operations**. Operations that store the result into the operand are called in-place. Basically you are chaning/altering the variable. For example x.copy_(y) or x.t_() will change the x.
 
 ## Tensor Memory Location
+This is where you have to be careful when comverting and modifying tensors.
+As they often point to the same memory address. Like a C++ pointer, when you modify one variable, another variable will be modified as well.
+
 ```Python
 import torch
 
@@ -516,11 +531,84 @@ Processing data samples. PyTorch provides operators that help readability and mo
 
 ## Loading a Dataset
 
-An example from [PyTorch's Datasets/Dataloaders](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html), we are going to load a dataset from the **Fashion-MNIST** which is one of subclasses of ```torch.utils.data.Dataset```, [TORCHVISION.DATASETS](https://pytorch.org/vision/stable/datasets.html#fashion-mnist).
+Here are examples from [PyTorch's Datasets/Dataloaders](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html), we are going to load a dataset from the **Fashion-MNIST** which is one of subclasses of ```torch.utils.data.Dataset```, [TORCHVISION.DATASETS](https://pytorch.org/vision/stable/datasets.html#fashion-mnist).
 
 **Parameters**<br/>
 ```root``` is the path where the train/test data is stored. <br/>
 ```train``` specifies training or test dataset. <br/>
 ```downlad=true``` downloads the data from the internet if it's not avaliable at ```root```. <br/>
 ```transform``` and ```target_transform``` specify the featre and label transformations. <br/>
+
+```Python
+import torch
+from torch.utils.data import Dataset
+from torchvision import datasets
+from torchvision.transforms import ToTensor
+import matplotlib.pyplot as plt
+
+
+training_data = datasets.FashionMNIST(
+    root="data",
+    train=True,
+    download=True,
+    transform=ToTensor()
+)
+
+test_data = datasets.FashionMNIST(
+    root="data",
+    train=False,
+    download=True,
+    transform=ToTensor()
+)
+```
+_output_
+```
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz to data/FashionMNIST/raw/train-images-idx3-ubyte.gz
+Extracting data/FashionMNIST/raw/train-images-idx3-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz to data/FashionMNIST/raw/train-labels-idx1-ubyte.gz
+Extracting data/FashionMNIST/raw/train-labels-idx1-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz to data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz
+Extracting data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz to data/FashionMNIST/raw
+
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz
+Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz to data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz
+Extracting data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz to data/FashionMNIST/raw
+
+Processing...
+Done!
+```
+## Iterating and Visualizing the Dataset
+We can index Datasets manually like a list using ```training_data[index]```. We use **matplotlib** to render some samples in our training data.
+```python
+labels_map = {
+    0: "T-Shirt",
+    1: "Trouser",
+    2: "Pullover",
+    3: "Dress",
+    4: "Coat",
+    5: "Sandal",
+    6: "Shirt",
+    7: "Sneaker",
+    8: "Bag",
+    9: "Ankle Boot",
+}
+figure = plt.figure(figsize=(8, 8))
+cols, rows = 3, 3
+for i in range(1, cols * rows + 1):
+    sample_idx = torch.randint(len(training_data), size=(1,)).item()
+    img, label = training_data[sample_idx]
+    figure.add_subplot(rows, cols, i)
+    plt.title(labels_map[label])
+    plt.axis("off")
+    plt.imshow(img.squeeze(), cmap="gray")
+plt.show()
+```
+_output_
+![Figure_1](https://user-images.githubusercontent.com/85147048/121321204-17d33000-c938-11eb-840b-8b0ad1634074.png)
+
 
