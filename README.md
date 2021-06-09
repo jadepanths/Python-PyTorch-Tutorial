@@ -526,8 +526,8 @@ tensor([2., 2., 2.], dtype=torch.float64)
 # Datasets & Dataloaders
 Processing data samples. PyTorch provides operators that help readability and modularity. You can use pre-loaded datasets provided by PyTorch or your own datasets. **Dataset** stores the samples and their corresponding labels while **DataLoader** wraps an iterable around the **dataset** to enable easy access to the samples. **DataLoader** comes into handy when the datasets become prominent and are required to be loaded into memory at once.  **DataLoader** parallelizes the data loading process with the support of automatic batching.
 
-**DataLoader: **```torch.utils.data.DataLoader```<br/>
-**Dataset: **```torch.utils.data.Dataset```
+**DataLoader:** ```torch.utils.data.DataLoader```<br/>
+**Dataset:** ```torch.utils.data.Dataset```
 
 ## Loading a Dataset
 
