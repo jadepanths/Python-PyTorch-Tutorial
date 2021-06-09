@@ -39,15 +39,13 @@ if device.type == 'cuda':
 x = torch.rand(5, 3)
 print(x)
 ```
-
-# Basic PyTorch
-## Tensors
+# Tensors
 Tensors are a specialized data structure similar to arrays and matrixes. Tensors are similar to [NumPy's](https://numpy.org/devdocs/user/absolute_beginners.html) ndarrays. However, Tensors can run on GPUs or hardware accelerators, making it significantly faster than NumPy, especially when running on GPUs. You can learn more about [NumPy vs. Tensors](https://medium.com/thenoobengineer/numpy-arrays-vs-tensors-c58ea54f0e59) here. A concise definition of a tensor is a matrix of N ≥ 3 dimensions. Note that all tensors are immutable, like Python numbers and strings: you can never update the contents of a tensor, only create a new one.
 
-### Initializing a Tensor
+## Initializing a Tensor
 You can initialize a tensor in many ways. Here is the reference source, [TENSORS](https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html).
 
-#### Directly with oparetor
+### Directly with oparetor
 Tensor can be initialized using ```torch.tensor()``` creating a specific tensor.
 ```python
 t1 = torch.tensor([[1, 2],
@@ -66,14 +64,14 @@ t2:
  tensor([[5, 6],
         [7, 8]])
 ```
-#### Directly from arrays
+### Directly from arrays
 Tensors can be initialized from a created array. The data type is automatically inferred.
 ```python
 data = [[1, 2], [3, 4]]
 tensor_data = torch.tensor(data)
 print(f"tensor_data from arrays: \n {tensor_data} \n")
 ```
-#### From a NumPy Array
+### From a NumPy Array
 Tensors can be created from NumPy arrays and vice versa.
 ```python
 # Tensor from Numpy
@@ -86,7 +84,7 @@ print(f"From Numpy: \n {tensor_from_np} \n")
 np_from_tensor = np.array(tensor_from_np)
 print(f"From Tensor: \n {np_from_tensor} \n")
 ```
-#### From another tensor
+### From another tensor
 The newly created tensor retains the properties: shape and datatype of the argument tensor unless explicitly overridden.
 ```python
 tensor_ones = torch.ones_like(x_data)
@@ -95,7 +93,7 @@ print(f"Ones Tensor: \n {tensor_ones} \n")
 tensor_rand = torch.rand_like(x_data, dtype=torch.float)
 print(f"Random Tensor: \n {tensor_rand} \n")
 ```
-#### With a random/constant values
+### With a random/constant values
 *shape* is a tuple of tensor dimensions. You can initialize a tensor with any constant value or random numbers. <br/>
 *rand* is random.
 ```python
@@ -108,7 +106,7 @@ print(f"Random Tensor: \n {rand_tensor} \n")
 print(f"Ones Tensor: \n {ones_tensor} \n")
 print(f"Zeros Tensor: \n {zeros_tensor} \n")
 ```
-### Tensor's Attributes
+## Tensor's Attributes
 Attributes describe their shape, datatype, and the device on which the tensor is stored.<br/>
 ```tensor.shape``` will show the dimension of the tensor.<br/>
 ```tensor.dtype``` will show the datatype of the tensor.<br/>
@@ -127,10 +125,10 @@ Datatype of tensor: torch.float32
 Device tensor is stored on: cpu
 ```
 
-### Tensor's Dimension/shape
+## Tensor's Dimension/shape
 Since dimensions have been mentioned multiple times, here is some information regarding them. This section will help you visualizing multidimensions tensor/arrays. You can also read more about it here [Understanding Dimensions in PyTorch](https://towardsdatascience.com/understanding-dimensions-in-pytorch-6edf9972d3be).
 
-#### Rank-0 or Scalar
+### Rank-0 or Scalar
 A *scalar* contains a single value and has no axes.
 ```python
 import torch
@@ -143,7 +141,7 @@ print(rank_0_tensor.shape)
 tensor(4)
 torch.Size([])
 ```
-#### Rank-1 or Vector
+### Rank-1 or Vector
 A *vector* tensor is a list of values and has only one axis.
 ```python
 import torch
@@ -156,7 +154,7 @@ print(rank_1_tensor.shape)
 tensor([1, 2, 3, 4, 5])
 torch.Size([5])
 ```
-#### Rank-2 or Matrix
+### Rank-2 or Matrix
 A *matrix* or *rank-2* tensor has two axes like a 2 dimesional arrays.
 ```python
 import torch
@@ -172,7 +170,7 @@ tensor([[1, 2],
         [7, 8]])
 torch.Size([4, 2])
 ```
-#### Rank-3 or 3 Dimesionals
+### Rank-3 or 3 Dimesionals
 Tensor with 3 axes.
 ```python
 import torch
@@ -203,7 +201,7 @@ torch.Size([3, 2, 4])
 It is easier to construct the multidimensional tension with the last element of the shape/size. In this example (tensor size [3, 2, 4]), you start with 4 elements on an axis, 2 on another axis becoming 4 by 2 tension, and 3 on the last axis becoming 4 by 2 by 3 tension. In addition, it's easier to keep track of your multidimensional tensions when you keep the same format consistently.
 For example, construct starting on the x-axis, y-axis, z-axis, then x-axis again.
 
-#### Rank-4 tensor, and higher.
+### Rank-4 tensor, and higher.
 Basically a stack of the matrix tensors.
 ```python
 import torch
@@ -236,14 +234,14 @@ torch.Size([3, 2, 2, 3])
 ```
 ![4+Dimensions](https://user-images.githubusercontent.com/85147048/120795255-73ca3d00-c563-11eb-8ba9-19736313a134.jpg)
 
-### Tensor's Operations
+## Tensor's Operations
 There are over a hundred tensor oparetions, including arithmetic, linear algebra, matrix manipulation, sampling, and more [here](https://pytorch.org/docs/stable/torch.html).
 
 
-#### Tensor on CUDA/CPU
+### Tensor on CUDA/CPU
 Since we have talked about CUDA in the installation section, we can move our tensor to GPU if available. By default, tensors are created on the CPU. However, you can move run them on GPU at a higher speed than on a CPU.
 
-##### Example 1
+#### Example 1
 ```python
 import torch
 tensor_cpu = torch.rand([2, 2, 2, ])
@@ -265,7 +263,7 @@ tensor([[[0.0510, 0.7120],
 ```
 *note* device='cuda:0' is your GPU index at 0. Useful when you have multiple GPUs.
 
-##### Example 2
+#### Example 2
 ```python
 import torch
 
@@ -298,7 +296,7 @@ tensor([1., 1., 1.], device='cuda:0')
 tensor([2., 2., 2.])
 ```
 
-#### Standard numpy-like indexing and slicing
+### Standard numpy-like indexing and slicing
 Access, print, or edit different indexes.
 A coding example from [PyTorch](https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html)<br/>
 ```python
@@ -321,7 +319,7 @@ tensor([[1., 0., 1., 1.],
 ```
 More example codes in the included files/codes.
 
-#### Joining Tensors
+### Joining Tensors
 *torch.stack* **stacks** a sequence of tensors along a **new dimension**<br/>
 *torch.cat* con**cat**enates the sequence of tensors in the **given dimension.**<br/>
 ```python
@@ -371,7 +369,7 @@ cat | new dimension:  torch.Size([2, 4])
 ```
 So if **A** and **B** are of shape (4, 5), torch.cat((A, B), dim=0) will be of shape (8, 5), and torch.stack((A, B), dim=0) will be of shape (2, 4, 5).
 
-#### Arithmetic operations
+### Arithmetic operations
 #### Dot Multiplication
 ```torch.mul(a, b)``` is a multiplication of the corresponding bits of matrix a and b. The dimensions of the two metrix are generally equal (ex: the number of elements have to match) The output metrix will keep its shape/dimension.
 ```python
@@ -466,7 +464,7 @@ There are many more operations such as: <br/>
 ```tensor.add_(x)``` to add all the elements with **x**.<br/>
 note: **_** suffix is called **In-Place operations**. Operations that store the result into the operand are called in-place. Basically you are chaning/altering the variable. For example x.copy_(y) or x.t_() will change the x.
 
-#### Tensor Memory Location
+## Tensor Memory Location
 ```Python
 import torch
 
@@ -510,13 +508,13 @@ tensor([1., 1., 1.], dtype=torch.float64)
 tensor([2., 2., 2.], dtype=torch.float64)
 ```
 
-## Datasets & Dataloaders
+# Datasets & Dataloaders
 Processing data samples. PyTorch provides operators that help readability and modularity. You can use pre-loaded datasets provided by PyTorch or your own datasets. **Dataset** stores the samples and their corresponding labels while **DataLoader** wraps an iterable around the **dataset** to enable easy access to the samples. **DataLoader** comes into handy when the datasets become prominent and are required to be loaded into memory at once.  **DataLoader** parallelizes the data loading process with the support of automatic batching.
 
 **DataLoader: **```torch.utils.data.DataLoader```<br/>
 **Dataset: **```torch.utils.data.Dataset```
 
-### Loading a Dataset
+## Loading a Dataset
 
 An example from [PyTorch's Datasets/Dataloaders](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html), we are going to load a dataset from the **Fashion-MNIST** which is one of subclasses of ```torch.utils.data.Dataset```, [TORCHVISION.DATASETS](https://pytorch.org/vision/stable/datasets.html#fashion-mnist).
 
