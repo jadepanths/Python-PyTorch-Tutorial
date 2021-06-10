@@ -1,6 +1,9 @@
 # Python-PyTorch-Tutorial
 Basic PyTorch Tutorials in Python for beginners
 
+# Disclaimer
+This repository contains many resources I found during my study of this subject. This repository is a summary, note, resource, and information I found useful and would like to share with fellow beginners. I have no means of claiming the credits to myself, and I will be trying to cite as many things as possible.
+
 ## Background and Recommendation
 ### Mathematics
 To master deeplearning and AI, according to [Andrew Ng](https://en.wikipedia.org/wiki/Andrew_Ng), these areas of math are the most imporant, in decreasing order:
@@ -638,3 +641,68 @@ test_dataloader = DataLoader(test_data, batch_size=64, shuffle=True)
 ```
 
 ## Iterate through the DataLoader
+Once we have loaded the dataset into the _Dataloader_, we can iterate through the dataset. Each iteration below returns a batch of *train_feature* and *train_labels*. When spicifying _shuffle=true_, we shuffle all the data after the iteration is over.
+
+```python
+# Display image and label.
+train_features, train_labels = next(iter(train_dataloader))
+print(f"Feature batch shape: {train_features.size()}")
+print(f"Labels batch shape: {train_labels.size()}")
+img = train_features[0].squeeze()
+label = train_labels[0]
+plt.imshow(img, cmap="gray")
+plt.show()
+print(f"Label: {label}")
+```
+# Transforms
+Data does not always come in its final processed form and is required for traning machine learning algorithms. We use **transforms** to preform some manupulation of the data and make it suitable for traning like a raw ingredient where we need to cook it.
+<br/>
+<br/>
+All TorchVision datasets have two parameters - transform_ to modify the features and _target_transform_ to modify the labels - that accept callables containing the transformation logic. There are many commnon transforms here, [torchvision.transforms](https://pytorch.org/vision/stable/transforms.html).
+<br/>
+<br/>
+Using the example from pytorch.org (FashionMNIST), the FashionMNIST features are in PIL image format, and the labels are intergers. For training, we need the feature as normalized tensors, and the labels as one-hot encoded tensors. 
+
+```python
+from torchvision import datasets
+from torchvision.transforms import ToTensor, Lambda
+
+ds = datasets.FashionMNIST(
+    root="data",
+    train=True,
+    download=True,
+    transform=ToTensor(),
+    target_transform=Lambda(lambda y: torch.zeros(10, dtype=torch.float).scatter_(0, torch.tensor(y), value=1))
+)
+```
+## ToTensor() 
+Converts a PIL image or NumPy _ndarray_ into a _FloatTensor_ and scale the image's pixel intensity values in the range [0.0 to 1.0]. The works for the image with elements that are in range from 0 to 255.
+
+## Lambda Transforms
+apply any user-defined lambda function. Here, we difine a function to turn integer into a one-hot encoded tensor. It first creates a zero tensor of size 10 (the number of labels in our dataset) and called [scatter_](https://pytorch.org/docs/stable/tensors.html#torch.Tensor.scatter_) which assigns a value=1 on the index as given by the label y.
+
+```python
+target_transform = Lambda(lambda y: torch.zeros(
+    10, dtype=torch.float).scatter_(dim=0, index=torch.tensor(y), value=1))
+```
+
+## One-hot Encoded Tensor
+Since we have mentioned one-hot encoded tensor several times, we are going to take a look what it actually is. [Here](https://datascience.stackexchange.com/questions/30215/what-is-one-hot-encoding-in-tensorflow) is a explaination from Djib2011 on a Stack.Exchange question.
+<br/>
+Suppose we have a catagorical feature in our dataset like colour. Your samples can only be either red, yellow, or blue. In machine learning algorith, we have to pass the argument as a number instead of strings. So we mapped the colours like this: <br/>
+<br/r>
+red --> 1 <br/>
+yellow --> 2 <br/>
+blue --> 3 <br/>
+<br/>
+We have replaced the string with the mapped value. However, this method can create negative side effects in our model when dealing with numbers. For example, blue is larger than yellow because 3 is larger than 2. Or red and yellow combied is equal to blue because of 1 + 2 = 3. The model has no way of knowing that these data was catagorical and then were mapped as intergers.<br/> <br/>
+Now is where **one-hot encoding** comes in handy. We create *N* **new features**. where *N* is the number of unique values in the orignal feature, where _N_ is the number of unique values in the original feature. In our example, _N_ would be eqaul to 3 as we only have 3 unique colours: red, yellow, and blue. <br/>
+<br/r>
+Each of these features is binary and would correspond to **one** of these unique values. In our example, the first feature would be a binary feature tellinus if that samle is red or not. The second would be the same this for yellow, and the Third for blue. <br/>
+<br/>
+An example of such a transformation is illustrated below: <br/>
+![mtimFxh](https://user-images.githubusercontent.com/85147048/121554816-a9c46100-ca3c-11eb-9b19-9bfefe159680.png)
+Note, that because this approach increases the dimensionality of the dataset, if we have a feature that takes many unique values, we may want to use a more sparse encoding.
+
+
+
