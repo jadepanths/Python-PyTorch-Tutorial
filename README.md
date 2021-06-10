@@ -690,7 +690,7 @@ target_transform = Lambda(lambda y: torch.zeros(
 Since we have mentioned one-hot encoded tensor several times, we are going to take a look what it actually is. [Here](https://datascience.stackexchange.com/questions/30215/what-is-one-hot-encoding-in-tensorflow) is a explaination from Djib2011 on a Stack.Exchange question.
 <br/>
 Suppose we have a catagorical feature in our dataset like colour. Your samples can only be either red, yellow, or blue. In machine learning algorith, we have to pass the argument as a number instead of strings. So we mapped the colours like this: <br/>
-<br/r>
+<br/>
 red --> 1 <br/>
 yellow --> 2 <br/>
 blue --> 3 <br/>
@@ -701,7 +701,7 @@ Now is where **one-hot encoding** comes in handy. We create *N* **new features**
 Each of these features is binary and would correspond to **one** of these unique values. In our example, the first feature would be a binary feature tellinus if that samle is red or not. The second would be the same this for yellow, and the Third for blue. <br/>
 <br/>
 An example of such a transformation is illustrated below: <br/>
-![mtimFxh](https://user-images.githubusercontent.com/85147048/121554816-a9c46100-ca3c-11eb-9b19-9bfefe159680.png)
+![mtimFxh](https://user-images.githubusercontent.com/85147048/121554816-a9c46100-ca3c-11eb-9b19-9bfefe159680.png)<br/>
 Note, that because this approach increases the dimensionality of the dataset, if we have a feature that takes many unique values, we may want to use a more sparse encoding.
 
 
