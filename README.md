@@ -697,7 +697,7 @@ blue --> 3 <br/>
 <br/>
 We have replaced the string with the mapped value. However, this method can create negative side effects in our model when dealing with numbers. For example, blue is larger than yellow because 3 is larger than 2. Or red and yellow combied is equal to blue because of 1 + 2 = 3. The model has no way of knowing that these data was catagorical and then were mapped as intergers.<br/> <br/>
 Now is where **one-hot encoding** comes in handy. We create *N* **new features**. where *N* is the number of unique values in the orignal feature, where _N_ is the number of unique values in the original feature. In our example, _N_ would be eqaul to 3 as we only have 3 unique colours: red, yellow, and blue. <br/>
-<br/r>
+<br/>
 Each of these features is binary and would correspond to **one** of these unique values. In our example, the first feature would be a binary feature tellinus if that samle is red or not. The second would be the same this for yellow, and the Third for blue. <br/>
 <br/>
 An example of such a transformation is illustrated below: <br/>
