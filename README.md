@@ -608,7 +608,33 @@ for i in range(1, cols * rows + 1):
     plt.imshow(img.squeeze(), cmap="gray")
 plt.show()
 ```
-_output_
+_output_ <br/>
 ![Figure_1](https://user-images.githubusercontent.com/85147048/121321204-17d33000-c938-11eb-840b-8b0ad1634074.png)
 
+## Creating Custom Dataset
+A custom Dataset must implement these three functions: ```__int__```, ```__len__```, abd ```__getitem__```.
 
+An implementation from the FashionMNIST image are stored in a dirctory *img_dir*, and thier labels are stored sperately in a CSV file *annotations_file*. You can read the code [here](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html#creating-a-custom-dataset-for-your-files).
+
+### __int__
+This function is a reseved method. It is called as a constructor in object oriented terminology. We initialize the directory containing the images, the annotations file, and both transforms.
+
+### __len__
+return the number of sameples in our dataset.
+
+### __getitem__
+This function loads and returns a sample from the dataset at a given index.
+Based on the index, it identifies the image's location on disk, converts that to a tensor using ```read_image```, retrieves the corresponding label from the cvs data, calls the transform functioins on them(if applicable), and returns the tensor image and corresponding label in a tuple.
+
+## Preparing Data for training with DataLoaders
+The *Dataset* retrieves our dataset's features and labels one sample at a time, We can use python's multiprocessing to speed up data retrieval. We also want to pass samples in minibatches, reshuffle the data at every epoch to reduce model overfitting.
+_note_ Overfitting is an error that occurs in data modeling as a result of a particular function aligning too closely to a minimal set of data points (overely complex model).
+
+```python
+from torch.utils.data import DataLoader
+
+train_dataloader = DataLoader(training_data, batch_size=64, shuffle=True)
+test_dataloader = DataLoader(test_data, batch_size=64, shuffle=True)
+```
+
+## Iterate through the DataLoader
