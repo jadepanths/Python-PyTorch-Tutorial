@@ -786,3 +786,23 @@ _output_
 ```Predicted class: tensor([8], device='cuda:0')```
 
 ## Model Layers
+Break down the layers in the FashionMNIST model. We will take a sample minibatch of 3 images of size 28x28.
+
+```python
+input_image = torch.rand(3,28,28)
+print(input_image.size())
+```
+_output_
+```torch.Size([3, 28, 28])```
+
+### Flatten
+We initialize the [nn.Flatten](https://pytorch.org/docs/stable/generated/torch.nn.Flatten.html) layer to convert each 2D 28*28 image into a contiguous of 784 pixel values (the minibatch dimension (at dim=0) is maintained)
+
+```python
+flatten = nn.Flatten()
+flat_image = flatten(input_image)
+print(flat_image.size())
+```
+_output_
+```torch.Size([3, 784])```
+
