@@ -704,5 +704,82 @@ An example of such a transformation is illustrated below: <br/>
 ![mtimFxh](https://user-images.githubusercontent.com/85147048/121554816-a9c46100-ca3c-11eb-9b19-9bfefe159680.png)<br/>
 Note, that because this approach increases the dimensionality of the dataset, if we have a feature that takes many unique values, we may want to use a more sparse encoding.
 
+# Build The Neutal Network
+The Neural networks comprise of layer or modules that perform operations on data. The [torch.nn](https://pytorch.org/docs/stable/nn.html) namespace provides all the building blocks you need to build your own neural network. All the modules in PyTorch subclasses the [nn.Module](https://pytorch.org/docs/stable/generated/torch.nn.Module.html). A neural network is modile itself that consists of other modules/laters. This nested structure allows for building and managing complex architectures easily.<br/>
+<br/>
+We will build a neural network to classify images in the FasionMNIST dataset.
+```python
+import os
+import torch
+from torch import nn
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+```
 
+## Get Device for training
+Training a model on a hardware accelerator like a GPU is faster than traing on a cpu. Therefore, we should check if cuda is available. 
+```python
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+print('Using {} device'.format(device))
+```
+_output_
+``` Using cuda device```
 
+## Define the Class
+We define our neural network bu subclassing _nn.Module_, and initialize the neural network laters in ```__init__```. Every _nn.Module_ subclass implements the operations on input data in the _forward_ method.
+
+```python
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super(NeuralNetwork, self).__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+            nn.ReLU()
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+```
+After creating an instance if _NeuralNetwork_, we can move it to the _device_ and print its structure.
+```python
+model = NeuralNetwork().to(device)
+print(model)
+```
+_output_
+```
+NeuralNetwork(
+  (flatten): Flatten(start_dim=1, end_dim=-1)
+  (linear_relu_stack): Sequential(
+    (0): Linear(in_features=784, out_features=512, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=512, out_features=512, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=512, out_features=10, bias=True)
+    (5): ReLU()
+  )
+)
+```
+Note: ReLu is like Riemann sums. You can approximate any continuos functions with lots of little reactangles. ReLu activations can produced lots of little rectangles. ReLu can make complicated shapes and approximate maby complicated domains.
+
+To use the model, we pass it the input data. This executes the model’s _forward_, along with some [background operations](https://github.com/pytorch/pytorch/blob/270111b7b611d174967ed204776985cefca9c144/torch/nn/modules/module.py#L866). Do not call model.forward() directly. <br/>
+<br/>
+Calling the model on the input returns a 10-dimensional tensor with a raw predicted values for each class. We get the prediction probabilities by passign ti through an instance of the _nn.Softmax_ module.
+
+```python
+X = torch.rand(1, 28, 28, device=device)
+logits = model(X)
+pred_probab = nn.Softmax(dim=1)(logits)
+y_pred = pred_probab.argmax(1)
+print(f"Predicted class: {y_pred}")
+```
+_output_
+```Predicted class: tensor([8], device='cuda:0')```
+
+## Model Layers
