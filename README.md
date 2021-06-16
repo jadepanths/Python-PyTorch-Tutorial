@@ -806,3 +806,46 @@ print(flat_image.size())
 _output_
 ```torch.Size([3, 784])```
 
+### Linear
+The [nn.Linear](https://pytorch.org/docs/stable/generated/torch.nn.Linear.html) is a module that applies a linear transformation on the input using its stored weights and biases.
+```python
+layer1 = nn.Linear(in_features=28*28, out_features=20)
+hidden1 = layer1(flat_image)
+print(hidden1.size())
+```
+_output_
+```torch.Size([3, 20])```
+
+### ReLU
+[nn.ReLu](https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html) is used between the linear layers. (There is other activations to introduce non-linearity in your model.
+
+Non-linear activations create the complex mapping between the model's input and outputs. They are apllied after the linear transformation to introduce _nonlinearity_.
+```python
+print(f"Before ReLU: {hidden1}\n\n")
+hidden1 = nn.ReLU()(hidden1)
+print(f"After ReLU: {hidden1}")
+```
+_output_
+```
+Before ReLU: tensor([[-0.2028, -0.3458,  0.4659, -0.6775,  0.1644, -0.3828, -0.0769, -0.0652,
+          0.3995,  0.0828, -0.1919, -0.3055, -0.2934, -0.0490,  0.1276, -0.1160,
+          0.0321, -0.1210, -0.4174, -0.2444],
+        [ 0.0683, -0.4251,  0.6049, -0.7045,  0.4218, -0.2934, -0.3552,  0.1145,
+          0.2328,  0.1044, -0.1296, -0.4870, -0.4180, -0.2836,  0.1672, -0.2017,
+         -0.1182, -0.3317, -0.0066, -0.2201],
+        [-0.2765, -0.1589,  0.6315, -0.6072,  0.1345, -0.3009, -0.0169,  0.0051,
+          0.7639, -0.0118,  0.1058,  0.0022, -0.5412, -0.0155,  0.0434, -0.3487,
+         -0.2751, -0.4741, -0.6828, -0.0236]], grad_fn=<AddmmBackward>)
+
+
+After ReLU: tensor([[0.0000, 0.0000, 0.4659, 0.0000, 0.1644, 0.0000, 0.0000, 0.0000, 0.3995,
+         0.0828, 0.0000, 0.0000, 0.0000, 0.0000, 0.1276, 0.0000, 0.0321, 0.0000,
+         0.0000, 0.0000],
+        [0.0683, 0.0000, 0.6049, 0.0000, 0.4218, 0.0000, 0.0000, 0.1145, 0.2328,
+         0.1044, 0.0000, 0.0000, 0.0000, 0.0000, 0.1672, 0.0000, 0.0000, 0.0000,
+         0.0000, 0.0000],
+        [0.0000, 0.0000, 0.6315, 0.0000, 0.1345, 0.0000, 0.0000, 0.0051, 0.7639,
+         0.0000, 0.1058, 0.0022, 0.0000, 0.0000, 0.0434, 0.0000, 0.0000, 0.0000,
+         0.0000, 0.0000]], grad_fn=<ReluBackward0>)
+
+```
