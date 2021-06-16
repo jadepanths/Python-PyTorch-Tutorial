@@ -849,3 +849,15 @@ After ReLU: tensor([[0.0000, 0.0000, 0.4659, 0.0000, 0.1644, 0.0000, 0.0000, 0.0
          0.0000, 0.0000]], grad_fn=<ReluBackward0>)
 
 ```
+### Sequential
+[nn.Sequential](https://pytorch.org/docs/stable/generated/torch.nn.Sequential.html) is an ordered container of modules. This data is passed through all the modules in the same order as defined. You can use sequential containers to put together a quicl network like *seq_modules*
+```python
+seq_modules = nn.Sequential(
+    flatten,
+    layer1,
+    nn.ReLU(),
+    nn.Linear(20, 10)
+)
+input_image = torch.rand(3,28,28)
+logits = seq_modules(input_image)
+```
