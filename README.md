@@ -707,7 +707,7 @@ An example of such a transformation is illustrated below: <br/>
 ![mtimFxh](https://user-images.githubusercontent.com/85147048/121554816-a9c46100-ca3c-11eb-9b19-9bfefe159680.png)<br/>
 Note, that because this approach increases the dimensionality of the dataset, if we have a feature that takes many unique values, we may want to use a more sparse encoding.
 
-# Build The Neutal Network
+# Build The Neural Network
 The Neural networks comprise of layer or modules that perform operations on data. The [torch.nn](https://pytorch.org/docs/stable/nn.html) namespace provides all the building blocks you need to build your own neural network. All the modules in PyTorch subclasses the [nn.Module](https://pytorch.org/docs/stable/generated/torch.nn.Module.html). A neural network is modile itself that consists of other modules/laters. This nested structure allows for building and managing complex architectures easily.<br/>
 <br/>
 We will build a neural network to classify images in the FasionMNIST dataset.
