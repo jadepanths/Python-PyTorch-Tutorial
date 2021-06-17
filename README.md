@@ -19,12 +19,23 @@ There are many online classes and toturials you can find online.
 # Work In Progress
 
 # Installation
-Install an IDE on your local device like [IDLE](https://www.python.org/downloads/), [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows), or [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/features/python/).  I personally recommend [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) as it has an excellent debugger, sophisticated autocompletion, and refactoring support.
+## Install an IDE (Windows, macOS, and Linux)
+Install an IDE on your local device like [IDLE](https://www.python.org/downloads/), [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows), or [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/features/python/). I personally recommend [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) as it has an excellent debugger, sophisticated autocompletion, and refactoring support. Moreover, PyCharm is a cross-platform IDE that works great on the **Windows**, **macOS**, and **Linux**.
 
-Install [Anaconda](https://www.anaconda.com/products/individual). Anaconda is a toolkit that includes open-source packages and libraries. You will need this to install libraries and manage environments where you will compile your code in.
+## Install a toolkit (Windows, macOS, and Linux
+Install [Anaconda](https://www.anaconda.com/products/individual). Anaconda is a toolkit that includes open-source packages and libraries. You will need this to install libraries and manage environments where you will compile your code in. 
 
-Check if your computer/labtop is ***CUDA-capable*** CUDA is limited to ***NVIDIA*** GPU. If you know what GPU you have, you can simply check if it CUDA capable here [CUDA GPUS LIST](https://developer.nvidia.com/cuda-gpus). If you do not know what GPU do you have, Open "Run" in the window search bar or the start menu. Then run this command: ```control /name Microsoft.DeviceManager```. Then go to your Display Adapters to check your GPUs. <br/>
+## Check CUDA Capability
+Check if your computer/labtop is ***CUDA-capable*** CUDA is limited to ***NVIDIA*** GPU. If you know what GPU you have, you can simply check if it CUDA capable here [CUDA GPUS LIST](https://developer.nvidia.com/cuda-gpus). <br/> 
+If you do not know what GPU do you have, check the following steps. <br/>
+For **Windows**, open "Run" in the window search bar or the start menu. Then run this command: ```control /name Microsoft.DeviceManager```. Then go to your Display Adapters to check your GPUs. <br/>
 ![Device Manager](https://user-images.githubusercontent.com/85147048/120597340-1eacff00-c46f-11eb-824c-7fcfffb5f5ee.png) <br/>
+
+For **MacOS**, under the Apple menu, select _About This Mac_, click the _More Indo..._ botton, and select _Graphics/Displays_ under the Hardware list. You will find the vendor name and model of your graphics card. You can also check version of the CUDA, if have one installed, by running ```nvcc -V``` in a terminal window. <br/>
+
+For **Linux**, you can use GUI to identify the graphics card. You can open the _setting_ dialog, and then click _Details_ in the sidebar. In the _About_ panel, look for a _Graphics_ entry. Here is an example.
+![16-5](https://user-images.githubusercontent.com/85147048/122430600-f3252b00-cfbd-11eb-8ba5-1fc9c9d99cbf.png) <br/>
+
 After making sure you have a CUDA-capable GPU, you can download and install [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads)
 
 ## Install PyTorch
