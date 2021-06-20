@@ -18,7 +18,7 @@ My recommendation is to learn basic linear algebra then basic programming.
 ### Basic Python
 There are many online classes and toturials you can find online. 
 
-# [Installation](https://colab.research.google.com/drive/1WKsi4Tu2tgKulYfh2F1dMh7ySUjtfXDD)
+# [Installation](https://github.com/jadepanths/Python-PyTorch-Tutorial/blob/main/Installation.ipynb)
 This will walk you through the PyTorch installation, including installing python and a toolkit.
 
 # [Tensors](https://github.com/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb)
