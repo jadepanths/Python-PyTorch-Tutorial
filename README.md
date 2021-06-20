@@ -18,21 +18,22 @@ My recommendation is to learn basic linear algebra then basic programming.
 ### Basic Python
 There are many online classes and toturials you can find online. 
 
-# [Installation](https://github.com/jadepanths/Python-PyTorch-Tutorial/blob/main/Installation.ipynb)
+# [Installation](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Installation.ipynb)
 This will walk you through the PyTorch installation, including installing python and a toolkit.
 
-# [Tensors](https://github.com/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb)
+# [Tensors](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb)
 A neural network is a mathematical function. It takes in one or multiple inputs, process it and produces one or more outputs, In PyTorch, neural networks are composed of PyTorch tensors. <br/>
 
 Tensors are a specialized data structure similar to arrays and matrixes. Tensors are similar to [NumPy's](https://numpy.org/devdocs/user/absolute_beginners.html) ndarrays. However, Tensors can run on GPUs or hardware accelerators, making it significantly faster than NumPy, especially when running on GPUs. You can learn more about [NumPy vs. Tensors](https://medium.com/thenoobengineer/numpy-arrays-vs-tensors-c58ea54f0e59) here. A concise definition of a tensor is a matrix of N ≥ 3 dimensions. Note that all tensors are immutable, like Python numbers and strings: you can never update the contents of a tensor, only create a new one.
 
-## [Initializing a Tensor](https://colab.research.google.com/drive/1Fv6-hEuDmCJvUltMVJuSJXcffqJmuFcU#scrollTo=GMW11qS2FFCW&line=2&uniqifier=1)
+## [Initializing a Tensor](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=SxOfpMUgMaqO)
 You can initialize a tensor in many ways. Here is the reference source, [TENSORS](https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html).
-- [Directly With Operator](https://colab.research.google.com/drive/1Fv6-hEuDmCJvUltMVJuSJXcffqJmuFcU#scrollTo=SxOfpMUgMaqO)
-- [Directly From Arrays](https://colab.research.google.com/drive/1Fv6-hEuDmCJvUltMVJuSJXcffqJmuFcU#scrollTo=cNs-l1FpPfig)
-- [From a NumPy Array](https://colab.research.google.com/drive/1Fv6-hEuDmCJvUltMVJuSJXcffqJmuFcU#scrollTo=KUrpxs7UP6Vh)
-- [From Another Tensor](https://colab.research.google.com/drive/1Fv6-hEuDmCJvUltMVJuSJXcffqJmuFcU#scrollTo=MyKNEnufRZgH)
-- [With a Random/Constant Values](https://colab.research.google.com/drive/1Fv6-hEuDmCJvUltMVJuSJXcffqJmuFcU#scrollTo=n9NiDSDAAR4W)
+
+- [Directly With Operator](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=SxOfpMUgMaqO)
+- [Directly From Arrays](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=cNs-l1FpPfig)
+- [From a NumPy Array](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=KUrpxs7UP6Vh)
+- [From Another Tensor](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=MyKNEnufRZgH)
+- [With a Random/Constant Values](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=n9NiDSDAAR4W)
 
 # Datasets & Dataloaders
 Processing data samples. PyTorch provides operators that help readability and modularity. You can use pre-loaded datasets provided by PyTorch or your own datasets. **Dataset** stores the samples and their corresponding labels while **DataLoader** wraps an iterable around the **dataset** to enable easy access to the samples. **DataLoader** comes into handy when the datasets become prominent and are required to be loaded into memory at once.  **DataLoader** parallelizes the data loading process with the support of automatic batching.
