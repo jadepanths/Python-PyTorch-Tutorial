@@ -22,7 +22,7 @@ There are many online classes and toturials you can find online.
 ## Install IDE (Windows, macOS, and Linux)
 Install an IDE on your local device like [IDLE](https://www.python.org/downloads/), [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows), or [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/features/python/). I personally recommend [PyCharm](https://www.jetbrains.com/pycharm/download/#section=windows) as it has an excellent debugger, sophisticated autocompletion, and refactoring support. Moreover, PyCharm is a cross-platform IDE that works great on the **Windows**, **macOS**, and **Linux**.
 
-## Install a toolkit (Windows, macOS, and Linux
+## Install toolkit (Windows, macOS, and Linux)
 Install [Anaconda](https://www.anaconda.com/products/individual). Anaconda is a toolkit that includes open-source packages and libraries. You will need this to install libraries and manage environments where you will compile your code in. 
 
 ## Check CUDA Capability
