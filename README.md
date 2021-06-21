@@ -22,9 +22,7 @@ There are many online classes and toturials you can find online.
 This will walk you through the PyTorch installation, including installing python and a toolkit.
 
 # [Tensors](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb)
-A neural network is a mathematical function. It takes in one or multiple inputs, process it and produces one or more outputs, In PyTorch, neural networks are composed of PyTorch tensors. <br/>
-
-Tensors are a specialized data structure similar to arrays and matrixes. Tensors are similar to [NumPy's](https://numpy.org/devdocs/user/absolute_beginners.html) ndarrays. However, Tensors can run on GPUs or hardware accelerators, making it significantly faster than NumPy, especially when running on GPUs. You can learn more about [NumPy vs. Tensors](https://medium.com/thenoobengineer/numpy-arrays-vs-tensors-c58ea54f0e59) here. A concise definition of a tensor is a matrix of N ≥ 3 dimensions. Note that all tensors are immutable, like Python numbers and strings: you can never update the contents of a tensor, only create a new one.
+A neural network is a mathematical function. It takes in one or multiple inputs, process it and produces one or more outputs, In PyTorch, neural networks are composed of PyTorch tensors.
 
 ## [Initializing a Tensor](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=SxOfpMUgMaqO)
 You can initialize a tensor in many ways. Here is the reference source, [TENSORS](https://pytorch.org/tutorials/beginner/basics/tensorqs_tutorial.html).
@@ -73,4 +71,14 @@ This is where you have to be careful when comverting and modifying tensors. As t
 -   [One-hot Encoded Tensor](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Transforms.ipynb#scrollTo=zWCqL5QiySr2)
 
 
-# Build The Neural Network
+# [Build The Neural Network](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=tFO5mydrz7e1)
+-   [Get Device for training](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=8jSMtV4H0DA6)
+-   [Define the Class](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=loUv67Xx0tY2)
+## [Model Layers](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=gAduRjFV2HsG)
+-   [Flatten](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=CT_8OIop2MFD)
+-   [Linear](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=cH-nXbGQ2SaH)
+-   [ReLU](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=gszx6zb-2xvS)
+-   [Sequential](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=eWSEnPsc27Zz)
+-   [Softmax](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=wPWxc6gi09LG)
+-   [Model Parameters](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=SwZl_oAW2eXp)
+
