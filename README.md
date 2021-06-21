@@ -36,6 +36,14 @@ You can initialize a tensor in many ways. Here is the reference source, [TENSORS
 - [With a Random/Constant Values](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=n9NiDSDAAR4W)
 
 ## [Tensor's Attributes](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=XRK7OefMBwkF)
+Attributes describe their shape, datatype, and the device on which the tensor is stored.
+
+## [Tensor's Dimension/shape](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=IGoAIHHYCZQi)
+-   [Scalar](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=HuOk1wPnC2KR&line=1&uniqifier=1)
+-   [Vector](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=YgdBXldaDuRz)
+-   [Metrix](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=A_lQYUuPEPzU)
+-   [3 Dimensionals](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=MYq4_iCnEXoS)
+-   [4+ Dimensional](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=Hd2k20WtFOLC)
 
 
 # Datasets & Dataloaders
