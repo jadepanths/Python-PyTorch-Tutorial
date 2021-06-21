@@ -45,6 +45,17 @@ Attributes describe their shape, datatype, and the device on which the tensor is
 -   [3 Dimensionals](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=MYq4_iCnEXoS)
 -   [4+ Dimensionals](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=Hd2k20WtFOLC)
 
+## [Tensor's Operations](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=z7v6RwbFGEsD)
+-   [Tensor on CUDA/GPU](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=7eqGXHENGJ4P)
+-   [Indexing and Slicing](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=tvC7M5tQH3z0&line=1&uniqifier=1)
+-   [Joining Tensors](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=1kzgb2X1JA62)
+
+### [Arithmetic Operations](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=pHMBEfUuNr53)
+-   [Dot Multiplication](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=8_RPGxrTNs7J)
+-   [Matrix Multiplication](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=Fyspiq90OGcM)
+
+## [Tensor Memory Location](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Tensors.ipynb#scrollTo=zhwLfsFskqmN)
+This is where you have to be careful when comverting and modifying tensors. As they often point to the same memory address. Like a C++ pointer, when you modify one variable, another variable will be modified as well.
 
 # Datasets & Dataloaders
 Processing data samples. PyTorch provides operators that help readability and modularity. You can use pre-loaded datasets provided by PyTorch or your own datasets. **Dataset** stores the samples and their corresponding labels while **DataLoader** wraps an iterable around the **dataset** to enable easy access to the samples. **DataLoader** comes into handy when the datasets become prominent and are required to be loaded into memory at once.  **DataLoader** parallelizes the data loading process with the support of automatic batching.
