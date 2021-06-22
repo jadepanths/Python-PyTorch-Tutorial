@@ -82,3 +82,9 @@ This is where you have to be careful when comverting and modifying tensors. As t
 -   [Softmax](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=wPWxc6gi09LG)
 -   [Model Parameters](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=SwZl_oAW2eXp)
 
+# [AUTOMATIC DIFFERENTIATION(autograd)](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb)
+-   [Tensors, Functions and Computational graph](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=xDVFnPVn4vd5)
+-   [Computing Gradients](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=_j2hrxXtC3p7)
+-   [Disabling Gradient Tracking](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=WBJP83kTFMSe)
+-   [More on Computational Graphs](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=J56zEsHBFx_z)
+-   [Optional Reading: Tensor Gradients and Jacobian Products](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=WOX3GcUjHMf5)
