@@ -94,3 +94,21 @@ This is where you have to be careful when comverting and modifying tensors. As t
 -   [Disabling Gradient Tracking](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=WBJP83kTFMSe)
 -   [More on Computational Graphs](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=J56zEsHBFx_z)
 -   [Optional Reading: Tensor Gradients and Jacobian Products](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=WOX3GcUjHMf5)
+
+
+# [Optimizing Model Parameters](https://colab.research.google.com/drive/1bf_VxbGd1pFECACDeM0QK4bF_m6xQiIt#scrollTo=hzGOlQy1-5bp)
+-   [Hyperparameters](https://colab.research.google.com/drive/1bf_VxbGd1pFECACDeM0QK4bF_m6xQiIt#scrollTo=mrG5yQvsA4UD)
+-   [Optimization Loop](https://colab.research.google.com/drive/1bf_VxbGd1pFECACDeM0QK4bF_m6xQiIt#scrollTo=qPWGQN7zCfrS)
+-   [Loss Function](https://colab.research.google.com/drive/1bf_VxbGd1pFECACDeM0QK4bF_m6xQiIt#scrollTo=FS2aD2nWah8j)
+    -   Mean Squared Error(MSE)
+    -   Negative Log Likelihood(NLL)
+    -   Binary Crossentropy (BCE)
+    -   Categorical Crossentropy (CC)
+    -   Sparse Categorical Crossentropy (SCC)
+-   [Optimizer](https://colab.research.google.com/drive/1bf_VxbGd1pFECACDeM0QK4bF_m6xQiIt#scrollTo=ZLDWVqodr-5F)
+-   [Full Implementation](https://colab.research.google.com/drive/1bf_VxbGd1pFECACDeM0QK4bF_m6xQiIt#scrollTo=FrMW6R_bzL_k)
+
+# [Save and Load the Model](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/SAVE_AND_LOAD_THE_MODEL.ipynb)
+-   [Saving and Loading Weights](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/SAVE_AND_LOAD_THE_MODEL.ipynb#scrollTo=fThWv290gX7_)
+-   [Saving and Loading Models with Shapes](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/SAVE_AND_LOAD_THE_MODEL.ipynb#scrollTo=RpwdFQKJyMnn)
+-   [Exporting Model to ONNX](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/SAVE_AND_LOAD_THE_MODEL.ipynb#scrollTo=-S86QK5O04mk)
