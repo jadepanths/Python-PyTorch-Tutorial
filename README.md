@@ -82,7 +82,13 @@ This is where you have to be careful when comverting and modifying tensors. As t
 -   [Softmax](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=wPWxc6gi09LG)
 -   [Model Parameters](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Build_The_Neural_Network.ipynb#scrollTo=SwZl_oAW2eXp)
 
-# [AUTOMATIC DIFFERENTIATION(autograd)](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb)
+# [AUTOMATIC & DIFFERENTIATION(autograd)](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb)
+
+## [Differentiation](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Differentiation%20%26%20Autograd.ipynb#scrollTo=iaNqKh8kXn14)
+-   [Derivative](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Differentiation%20%26%20Autograd.ipynb#scrollTo=iaNqKh8kXn14)
+-   [Partial Derivative](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Differentiation%20%26%20Autograd.ipynb#scrollTo=uap9glFzfzA5)
+
+## [Automatic Differentiation](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Differentiation%20%26%20Autograd.ipynb#scrollTo=fPEjPVwh1Qs6)
 -   [Tensors, Functions and Computational graph](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=xDVFnPVn4vd5)
 -   [Computing Gradients](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=_j2hrxXtC3p7)
 -   [Disabling Gradient Tracking](https://colab.research.google.com/github/jadepanths/Python-PyTorch-Tutorial/blob/main/Autograd.ipynb#scrollTo=WBJP83kTFMSe)
